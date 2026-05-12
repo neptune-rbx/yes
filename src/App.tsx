@@ -45,7 +45,7 @@ export default function App() {
               </>
             ) : (
               <button
-                onClick={() => setShowAuthModal(true)}
+                onClick={() => setActiveTab('profile')}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-100 text-zinc-950 hover:bg-white font-bold text-sm uppercase tracking-wider transition-colors"
               >
                 <LogIn className="w-4 h-4" />

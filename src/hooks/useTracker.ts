@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-// Use environment variable or default to '/api' for relative requests
-const API_BASE = import.meta.env.VITE_API_BASE || '/api';
+const API_BASE = 'https://ridesbackend.anthonykummerling.workers.dev';
 
 type TrackerState = {
   counts: Record<string, number>;
