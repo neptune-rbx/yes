@@ -121,9 +121,9 @@ export function ProfileTab({ tracker, year, setYear }: { tracker: ReturnType<typ
         </div>
       </div>
 
-      {/* Cloud Sync & Auth Section */}
+      {/* Account Sync Section */}
       <div className="bg-zinc-900/20 border border-zinc-900 rounded-2xl p-6">
-        <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-400 mb-4">Cloud Sync Services</h3>
+        <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-400 mb-4">Account Sync</h3>
         
         {session ? (
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -136,7 +136,7 @@ export function ProfileTab({ tracker, year, setYear }: { tracker: ReturnType<typ
                 {syncState === 'syncing' && <RefreshCw className="w-3.5 h-3.5 animate-spin text-zinc-400" />}
                 {syncState === 'synced' && <CheckCircle className="w-3.5 h-3.5 text-zinc-400" />}
                 {syncState === 'error' && <AlertCircle className="w-3.5 h-3.5 text-red-400" />}
-                Status: {syncState === 'syncing' ? 'Syncing counts to Cloudflare Workers...' : syncState === 'synced' ? 'All counts synced to cloud!' : syncState === 'error' ? 'Sync error occurred.' : 'Idle'}
+                Status: {syncState === 'syncing' ? 'Syncing counts...' : syncState === 'synced' ? 'All counts synced!' : syncState === 'error' ? 'Sync error occurred.' : 'Idle'}
               </p>
             </div>
             <button
@@ -149,7 +149,7 @@ export function ProfileTab({ tracker, year, setYear }: { tracker: ReturnType<typ
           </div>
         ) : (
           <div className="space-y-6">
-            <p className="text-sm text-zinc-500">Sign in to sync your ride counts across devices via Anthony's Ride Tracker backend.</p>
+            <p className="text-sm text-zinc-500">Sign in to sync your ride counts across devices.</p>
             
             <div className="flex gap-2 border-b border-zinc-900 pb-2 max-w-xs">
               <button

@@ -18,7 +18,7 @@ export type SyncState = 'idle' | 'syncing' | 'synced' | 'error' | 'not-authentic
 export function useTracker() {
   // Local session state
   const [session, setSession] = useState<Session>(() => {
-    const saved = localStorage.getItem('anthony_session');
+    const saved = localStorage.getItem('coaster_session');
     if (saved) {
       try { return JSON.parse(saved); } catch (e) {}
     }
@@ -34,7 +34,7 @@ export function useTracker() {
     return {
       counts: {},
       tiers: {},
-      profile: { name: 'Anthony', pic: '', selectedYear: new Date().getFullYear() },
+      profile: { name: 'User', pic: '', selectedYear: new Date().getFullYear() },
     };
   });
 
@@ -44,9 +44,9 @@ export function useTracker() {
   // Save session & state to localStorage
   useEffect(() => {
     if (session) {
-      localStorage.setItem('anthony_session', JSON.stringify(session));
+      localStorage.setItem('coaster_session', JSON.stringify(session));
     } else {
-      localStorage.removeItem('anthony_session');
+      localStorage.removeItem('coaster_session');
     }
   }, [session]);
 
