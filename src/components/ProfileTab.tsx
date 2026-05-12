@@ -85,7 +85,7 @@ export function ProfileTab({ tracker, year, setYear, showAuthModal, setShowAuthM
                 {profile.pic ? (
                   <img src={profile.pic} alt="Profile" className="w-full h-full object-cover" />
                 ) : (
-                  <span className="text-4xl text-zinc-600">?</span>
+                  <img src="https://cdn141.picsart.com/321556657089211.png" alt="Default" className="w-full h-full object-cover" />
                 )}
               </div>
               <button
@@ -98,12 +98,16 @@ export function ProfileTab({ tracker, year, setYear, showAuthModal, setShowAuthM
             </div>
 
             <div className="flex flex-col items-center md:items-start flex-1 gap-4">
+              <div>
+                <p className="text-sm text-zinc-500 uppercase tracking-widest font-bold mb-1">Username</p>
+                <p className="text-3xl font-black text-zinc-100">@{session.username}</p>
+              </div>
               <input
                 type="text"
                 value={profile.name}
                 onChange={(e) => tracker.updateProfile({ name: e.target.value })}
-                className="bg-transparent text-3xl font-black text-zinc-100 outline-none border-b border-transparent hover:border-zinc-900 focus:border-zinc-800 transition-colors w-full text-center md:text-left"
-                placeholder="Your Name"
+                className="bg-transparent text-xl font-bold text-zinc-300 outline-none border-b border-transparent hover:border-zinc-900 focus:border-zinc-800 transition-colors w-full text-left"
+                placeholder="Display Name (optional)"
               />
               <div className="flex items-center gap-3">
                 <span className="text-zinc-500 uppercase tracking-widest text-xs font-bold">Tracking Year</span>

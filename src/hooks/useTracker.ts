@@ -34,7 +34,7 @@ export function useTracker() {
     return {
       counts: {},
       tiers: {},
-      profile: { name: 'User', pic: '', selectedYear: new Date().getFullYear() },
+      profile: { name: '', pic: 'https://cdn141.picsart.com/321556657089211.png', selectedYear: new Date().getFullYear() },
     };
   });
 
@@ -201,7 +201,12 @@ export function useTracker() {
 
   const logout = () => {
     setSession(null);
-    setState((s) => ({ ...s, counts: {} })); // Clear counts of previous user
+    // Clear both counts and profile when logging out
+    setState((s) => ({ 
+      ...s, 
+      counts: {},
+      profile: { name: '', pic: 'https://cdn141.picsart.com/321556657089211.png', selectedYear: s.profile.selectedYear }
+    }));
   };
 
   return {

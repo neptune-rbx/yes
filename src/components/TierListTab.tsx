@@ -70,15 +70,19 @@ export function TierListTab({ tracker }: { tracker: ReturnType<typeof useTracker
                 </div>
                 <div className="flex-1 p-3 flex flex-wrap gap-3 items-start content-start">
                   {coastersInTier.map(ride => (
-                    <img
+                    <div
                       key={ride.id}
-                      src={ride.img}
-                      alt={ride.name}
-                      title={ride.name}
                       draggable
                       onDragStart={(e) => handleDragStart(e, ride.id)}
-                      className="w-20 h-20 object-cover rounded-lg border border-zinc-900 cursor-grab active:cursor-grabbing hover:scale-105 transition-transform"
-                    />
+                      className="flex flex-col items-center cursor-grab active:cursor-grabbing hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        src={ride.img}
+                        alt={ride.name}
+                        className="w-20 h-20 object-cover rounded-lg border border-zinc-900 hover:scale-105 transition-transform"
+                      />
+                      <p className="text-xs text-zinc-400 mt-1 text-center max-w-[80px] truncate">{ride.name}</p>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -96,15 +100,19 @@ export function TierListTab({ tracker }: { tracker: ReturnType<typeof useTracker
         <div className="flex flex-wrap gap-3">
           {unranked.length === 0 && <p className="text-zinc-600 text-sm italic">All ridden coasters have been ranked.</p>}
           {unranked.map(ride => (
-            <img
+            <div
               key={ride.id}
-              src={ride.img}
-              alt={ride.name}
-              title={ride.name}
               draggable
               onDragStart={(e) => handleDragStart(e, ride.id)}
-              className="w-20 h-20 object-cover rounded-lg border border-zinc-900 cursor-grab active:cursor-grabbing hover:scale-105 transition-transform"
-            />
+              className="flex flex-col items-center cursor-grab active:cursor-grabbing hover:opacity-80 transition-opacity"
+            >
+              <img
+                src={ride.img}
+                alt={ride.name}
+                className="w-20 h-20 object-cover rounded-lg border border-zinc-900 hover:scale-105 transition-transform"
+              />
+              <p className="text-xs text-zinc-400 mt-1 text-center max-w-[80px] truncate">{ride.name}</p>
+            </div>
           ))}
         </div>
       </div>
