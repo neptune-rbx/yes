@@ -33,3 +33,7 @@ wrangler.toml (if auto-generated)
 
 # Temporary files
 *.tmp
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
